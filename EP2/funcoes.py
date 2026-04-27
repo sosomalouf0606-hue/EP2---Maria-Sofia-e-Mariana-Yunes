@@ -11,3 +11,4 @@ def guardar_dado (dados_rolados, dados_no_estoque, dado_para_guardar):
     del dados_rolados [dado_para_guardar]
     return [dados_rolados, dados_no_estoque]
 
+# Alteração
