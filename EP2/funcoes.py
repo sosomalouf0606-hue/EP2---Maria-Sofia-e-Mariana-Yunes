@@ -1,3 +1,4 @@
+# Exercício 1
 from random import randint
 def rolar_dados (n):
     l = []
@@ -5,12 +6,12 @@ def rolar_dados (n):
         a = randint(1, 6)
         l.append(a)
     return l
-
+# Exercício 2
 def guardar_dado (dados_rolados, dados_no_estoque, dado_para_guardar):
     dados_no_estoque.append(dados_rolados[dado_para_guardar])
     del dados_rolados [dado_para_guardar]
     return [dados_rolados, dados_no_estoque]
-
+#exercício 3
 def remover_dado(dados_rolados, dados_no_estoque, n): #n= índice do dado a ser removido do estoque
     lista_dados=[]
     dado_removido=dados_no_estoque[n]
@@ -24,3 +25,4 @@ def remover_dado(dados_rolados, dados_no_estoque, n): #n= índice do dado a ser 
     lista_dados.append(dados_rolados)
     lista_dados.append(novo_estoque)
     return lista_dados
+
