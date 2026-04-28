@@ -20,9 +20,22 @@ def remover_dado(dados_rolados, dados_no_estoque, n): #n= índice do dado a ser 
     while i<len(dados_no_estoque):
         if i!=n:
             novo_estoque.append(dados_no_estoque[i])
+        i+=1
     dados_rolados.append(dado_removido)
-    dados_no_estoque=dados_no_estoque-dado_removido
     lista_dados.append(dados_rolados)
     lista_dados.append(novo_estoque)
     return lista_dados
+#exercício 4
+def calcula_pontos_regra_simples(lista_dados):
+    dic_pontos={}
+    for dado in range(1,7):
+        dic_pontos[dado]=0
+        for i in lista_dados:
+            if i==dado:
+                dic_pontos[dado]+=i
+    return dic_pontos
+
+
+
+        
 
