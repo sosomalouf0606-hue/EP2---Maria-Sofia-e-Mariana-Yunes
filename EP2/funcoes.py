@@ -70,7 +70,7 @@ def calcula_pontos_sequencia_baixa(dados_rolados):
                 contador+=1
         if contador>=4:
             return 15
-    return [0]
+    return 0
 
 
         
