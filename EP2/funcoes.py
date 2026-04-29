@@ -34,7 +34,24 @@ def calcula_pontos_regra_simples(lista_dados):
             if i==dado:
                 dic_pontos[dado]+=i
     return dic_pontos
-
+#exercício 5
+def calcula_pontos_soma(dados_rolados):
+    soma=0
+    i=0
+    while i<len(dados_rolados):
+        soma+=dados_rolados[i]
+        i+=1
+    return soma
+#exercício 6
+def calcula_pontos_sequencia_baixa(dados_rolados):
+    for inicio_sequencia in range(1,4):
+        contador=0
+        for valor in range(inicio_sequencia,inicio_sequencia+4):
+            if valor in dados_rolados:
+                contador+=1
+    if contador==4:
+        return 15
+    return 0
 
 
         
