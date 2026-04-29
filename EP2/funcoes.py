@@ -85,8 +85,31 @@ def calcula_pontos_sequencia_alta(dados_rolados):
             if contador == 5:
                 return 30
     return 0
-#
 
+#-----------------------------------------------------------------------------------------------
 
+# Exercício 8
+def calcula_pontos_full_house (dados_rolados):
+    resp = 0
+    dic = {'1' : 0, '2' : 0, '3' : 0, '4' : 0, '5' : 0, '6' : 0}
+    for x in dados_rolados:
+        if x == 1:
+            dic['1'] += 1
+        if x == 2:
+            dic['2'] += 1
+        if x == 3:
+            dic['3'] += 1
+        if x == 4:
+            dic['4'] += 1
+        if x == 5:
+            dic['5'] += 1
+        if x == 6:
+            dic['6'] += 1
+    if 2 in dic and 3 in dic:
+        for k, v in dic.items():
+            if v == 2 or v == 3:
+                resp += v * int(k)
+    return resp
+    
         
 
