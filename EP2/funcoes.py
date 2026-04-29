@@ -6,15 +6,24 @@ def rolar_dados (n):
         a = randint(1, 6)
         l.append(a)
     return l
+
+#------------------------------------------------------------------
+
 # Exercício 2
 def guardar_dado (dados_rolados, dados_no_estoque, dado_para_guardar):
     dados_no_estoque.append(dados_rolados[dado_para_guardar])
     del dados_rolados [dado_para_guardar]
     return [dados_rolados, dados_no_estoque]
-#exercício 3
+
+
+#---------------------------------------------------------------------------
+
+#exercício 3 
+ # Existe um jeito mais rápido de fazer esse exercício. 
+ # Não muda nada, mas se vc quiser eu te ensino depois
 def remover_dado(dados_rolados, dados_no_estoque, n): #n= índice do dado a ser removido do estoque
     lista_dados=[]
-    dado_removido=dados_no_estoque[n]
+    dado_removido=dados_no_estoque[n]    
     novo_estoque=[]
     i=0
     while i<len(dados_no_estoque):
@@ -25,6 +34,10 @@ def remover_dado(dados_rolados, dados_no_estoque, n): #n= índice do dado a ser 
     lista_dados.append(dados_rolados)
     lista_dados.append(novo_estoque)
     return lista_dados
+
+
+#---------------------------------------------------------------------------------------
+
 #exercício 4
 def calcula_pontos_regra_simples(lista_dados):
     dic_pontos={}
@@ -34,6 +47,9 @@ def calcula_pontos_regra_simples(lista_dados):
             if i==dado:
                 dic_pontos[dado]+=i
     return dic_pontos
+
+#--------------------------------------------------------------------------------------------
+
 #exercício 5
 def calcula_pontos_soma(dados_rolados):
     soma=0
@@ -42,6 +58,9 @@ def calcula_pontos_soma(dados_rolados):
         soma+=dados_rolados[i]
         i+=1
     return soma
+
+#--------------------------------------------------------------------------------------------
+
 #exercício 6
 def calcula_pontos_sequencia_baixa(dados_rolados):
     for inicio_sequencia in range(1,4):
@@ -49,12 +68,48 @@ def calcula_pontos_sequencia_baixa(dados_rolados):
         for valor in range(inicio_sequencia,inicio_sequencia+4):
             if valor in dados_rolados:
                 contador+=1
-    if contador==4:
-        return 15
+        if contador==4:
+            return 15
     return 0
 
+#---------------------------------------------------------------------------------------------
 
+# Exercício 7
+def calcula_pontos_sequencia_alta(dados_rolados):
+    for inicio_sequencia in range (1,3):
+        contador = 0
+        for valor in range (inicio_sequencia, inicio_sequencia + 5):
+            if valor in dados_rolados:
+                contador += 1
+            if contador == 5:
+                return 30
+    return 0
 
+#-----------------------------------------------------------------------------------------------
 
-
-        
+# Exercício 8
+def calcula_pontos_full_house (dados_rolados):
+    resp = 0
+    l = [0, 0, 0, 0, 0, 0]
+    for x in dados_rolados:
+        if x == 1:
+            l[0] += 1
+        if x == 2:
+            l[1] += 1
+        if x == 3:
+            l[2] += 1
+        if x == 4:
+            l[3] += 1
+        if x == 5:
+            l[4] += 1
+        if x == 6:
+            l[5] += 1
+    if 2 in l and 3 in l:
+        i = 0
+        while i < len (l):
+            if l[i] == 2:
+                resp += 2 * (i + 1)
+            if l[i] == 3:
+                resp += 3 * (i + 1)
+            i += 1
+    return resp
