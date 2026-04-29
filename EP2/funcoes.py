@@ -68,9 +68,9 @@ def calcula_pontos_sequencia_baixa(dados_rolados):
         for valor in range(inicio_sequencia,inicio_sequencia+4):
             if valor in dados_rolados:
                 contador+=1
-    if contador>=4:
-        return 15
-    return 0
+        if contador>=4:
+            return 15
+    return [0]
 
 
         
