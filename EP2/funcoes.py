@@ -82,7 +82,7 @@ def calcula_pontos_sequencia_alta(dados_rolados):
         for valor in range (inicio_sequencia, inicio_sequencia + 5):
             if valor in dados_rolados:
                 contador += 1
-            if contador == 4:
+            if contador == 5:
                 return 30
     return 0
 
