@@ -112,6 +112,7 @@ def calcula_pontos_full_house (dados_rolados):
                 resp += 2 * (i + 1)
             if l[i] == 3:
                 resp += 3 * (i + 1)
+            i += 1
     return resp
     
 
