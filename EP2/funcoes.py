@@ -113,7 +113,7 @@ def calcula_pontos_full_house (dados_rolados):
                 resp += 3 * (i + 1)
             i += 1
     return resp
-
+#----------------------------------------------------------------------------
 #exerício 9
 def calcula_pontos_quadra(dados_rolados):
     i = 0
@@ -134,7 +134,7 @@ def calcula_pontos_quadra(dados_rolados):
             return soma
         i += 1
     return 0
-
+#--------------------------------------------------------------------------------------
 #exercício 10
 def calcula_pontos_quina(dados_rolados):
     i = 0
@@ -150,4 +150,15 @@ def calcula_pontos_quina(dados_rolados):
             return 50
         i += 1
     return 0
+#-------------------------------------------------------------------------------------------
+# Exercício 11
 
+def calcula_pontos_regra_avancada (dados_rolados):
+    dic = {}
+    dic['cinco_iguais'] = calcula_pontos_quina(dados_rolados)
+    dic['full_house'] = calcula_pontos_full_house(dados_rolados)
+    dic['quadra'] = calcula_pontos_quadra(dados_rolados)
+    dic['sem_combinacao'] = calcula_pontos_soma(dados_rolados)
+    dic['sequencia_alta'] = calcula_pontos_sequencia_alta(dados_rolados)
+    dic['sequencia_baixa'] = calcula_pontos_sequencia_baixa(dados_rolados)
+    return dic
