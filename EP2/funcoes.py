@@ -113,3 +113,41 @@ def calcula_pontos_full_house (dados_rolados):
                 resp += 3 * (i + 1)
             i += 1
     return resp
+
+#exerício 9
+def calcula_pontos_quadra(dados_rolados):
+    i = 0
+    while i < len(dados_rolados):
+        contador = 0
+        dado = dados_rolados[i]
+        k = 0
+        while k < len(dados_rolados):
+            if dados_rolados[k] == dado:
+                contador += 1
+            k += 1
+        if contador >= 4:
+            soma = 0
+            j = 0
+            while j < len(dados_rolados):
+                soma += dados_rolados[j]
+                j += 1
+            return soma
+        i += 1
+    return 0
+
+#exercício 10
+def calcula_pontos_quina(dados_rolados):
+    i = 0
+    while i < len(dados_rolados):
+        contador = 0
+        dado = dados_rolados[i] 
+        k = 0
+        while k < len(dados_rolados):
+            if dados_rolados[k] == dado:
+                contador += 1
+            k += 1 
+        if contador >= 5:
+            return 50
+        i += 1
+    return 0
+
