@@ -53,8 +53,17 @@ while i < 12:
         dados_finais = dados + dados_guardados
         print('Digite a combinação desejada:')
         comb = input ('')
-        if comb in cartela['regra_simples'] or comb in cartela['regra_avancada']:
-            if cartela['regra_simples'][comb] != -1 or cartela['regra_avancada'][comb] != -1:
+        if comb in cartela['regra_simples']:
+            if cartela['regra_simples'][comb] != -1:
+               cartela = fun.faz_jogada(dados_finais, comb, cartela)
+               i += 1
+               n = 0
+               dados = fun.rolar_dados(6)
+               dados_guardados = []
+            else:
+                print('Essa combinação já foi utilizada.')
+        elif comb in cartela['regra_avancada']:
+            if cartela['regra_avancada'][comb] != -1:
                cartela = fun.faz_jogada(dados_finais, comb, cartela)
                i += 1
                n = 0
