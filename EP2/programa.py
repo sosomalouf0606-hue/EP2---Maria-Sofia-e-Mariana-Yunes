@@ -30,9 +30,10 @@ while i < 12:
     if acao == 1:
         print("Digite o índice do dado a ser guardado (0 a 4):")
         guardar = int(input(' '))
-        novos_dados = fun.guardar_dado(dados, dados_guardados, guardar)
-        dados = novos_dados[0]
-        dados_guardados = novos_dados[1]
+        if guardar < len(dados):
+            novos_dados = fun.guardar_dado(dados, dados_guardados, guardar)
+            dados = novos_dados[0]
+            dados_guardados = novos_dados[1]
     elif acao == 2:
         print("Digite o índice do dado a ser removido (0 a 4):")
         remover = int(input(' '))
