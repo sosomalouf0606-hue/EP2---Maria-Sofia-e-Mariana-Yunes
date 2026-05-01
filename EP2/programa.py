@@ -26,29 +26,29 @@ while i < 12:
     print (f'dados rolados: {dados}')
     print(f'dados guardados: {dados_guardados}')
     print('Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:')
-    acao = int(input(' '))
-    if acao == 1:
+    acao = input(' ')
+    if acao == '1':
         print("Digite o índice do dado a ser guardado (0 a 4):")
         guardar = int(input(' '))
         if guardar < len(dados):
             novos_dados = fun.guardar_dado(dados, dados_guardados, guardar)
             dados = novos_dados[0]
             dados_guardados = novos_dados[1]
-    elif acao == 2:
+    elif acao == '2':
         print("Digite o índice do dado a ser removido (0 a 4):")
         remover = int(input(' '))
         if guardar < len(dados):
             novos_dados = fun.remover_dado(dados, dados_guardados, remover)
             dados = novos_dados[0]
             dados_guardados = novos_dados[1]
-    elif acao == 3:
+    elif acao == '3':
         if n < 2:
             novos_dados = fun.rolar_dados(len(dados))
             dados = novos_dados
             n += 1
         else:
             print('"Você já usou todas as rerrolagens."')
-    elif acao == 4:
+    elif acao == '4':
         print ('Cartela de pontos:')
         print (fun.imprime_cartela(cartela))
     elif acao == 0:
