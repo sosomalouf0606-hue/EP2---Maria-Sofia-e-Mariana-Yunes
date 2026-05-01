@@ -20,9 +20,9 @@ cartela = {
 print(fun.imprime_cartela(cartela))
 i = 0 
 n = 0
+dados = fun.rolar_dados(6)
+dados_guardados = []
 while i < 12:
-    dados = fun.rolar_dados
-    dados_guardados = []
     print (f'dados rolados: {dados}')
     print(f'dados guardados: {dados_guardados}')
     print('Digite 1 para guardar um dado, 2 para remover um dado, 3 para rerrolar, 4 para ver a cartela ou 0 para marcar a pontuação:')
@@ -53,11 +53,13 @@ while i < 12:
         dados_finais = dados + dados_guardados
         print('Digite a combinação desejada:')
         comb = input ('')
-        if comb in cartela[regra_simples] or comb in cartela[regra_avancada]:
-            if cartela[regra_simples][comb] != -1 or cartela[regra_avancada][comb] != -1:
+        if comb in cartela['regra_simples'] or comb in cartela['regra_avancada']:
+            if cartela['regra_simples'][comb] != -1 or cartela['regra_avancada'][comb] != -1:
                cartela = fun.faz_jogada(dados_finais, comb, cartela)
                i += 1
                n = 0
+               dados = fun.rolar_dados(6)
+               dados_guardados = []
             else:
                 print('Essa combinação já foi utilizada.')
         else:
@@ -65,15 +67,17 @@ while i < 12:
     else:
         print("Opção inválida. Tente novamente.")
     s = 0
-    for p in cartela['regra_simples'].values():
-        s += p
-    if s >= 63:
-        s += 35
-    for p in cartela['regra_avancada'].values():
-        s += p
-    print('Cartela de pontos:')
-    print(cartela)
-    print (f'Pontuação total: {259}')
+
+
+for p in cartela['regra_simples'].values():
+    s += p
+if s >= 63:
+    s += 35
+for p in cartela['regra_avancada'].values():
+    s += p
+print('Cartela de pontos:')
+print(cartela)
+print (f'Pontuação total: {259}')
 
 
 
