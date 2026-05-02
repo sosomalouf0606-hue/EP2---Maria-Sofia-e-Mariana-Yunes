@@ -51,7 +51,7 @@ while i < 12:
     elif acao == '4':
         print ('Cartela de pontos:')
         print (fun.imprime_cartela(cartela))
-    elif acao == 0:
+    elif acao == '0':
         dados_finais = dados + dados_guardados
         print('Digite a combinação desejada:')
         comb = input ('')
