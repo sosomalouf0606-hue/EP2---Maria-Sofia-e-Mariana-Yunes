@@ -86,7 +86,6 @@ if s >= 63:
     s += 35
 for p in cartela['regra_avancada'].values():
     s += p
-print('Cartela de pontos:')
 print(cartela)
 print (f'Pontuação total: {s}')
 
