@@ -49,7 +49,6 @@ while i < 12:
         else:
             print("Você já usou todas as rerrolagens.")
     elif acao == '4':
-        print ('Cartela de pontos:')
         fun.imprime_cartela(cartela)
     elif acao == '0':
         dados_finais = dados + dados_guardados
