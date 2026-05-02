@@ -17,10 +17,10 @@ cartela = {
         'cinco_iguais': -1
     }
 }
-print(fun.imprime_cartela(cartela))
+fun.imprime_cartela(cartela)
 i = 0 
 n = 0
-dados = fun.rolar_dados(6)
+dados = fun.rolar_dados(5)
 dados_guardados = []
 while i < 12:
     print (f'dados rolados: {dados}')
@@ -37,7 +37,7 @@ while i < 12:
     elif acao == '2':
         print("Digite o índice do dado a ser removido (0 a 4):")
         remover = int(input(' '))
-        if guardar < len(dados):
+        if remover < len(dados_guardados):
             novos_dados = fun.remover_dado(dados, dados_guardados, remover)
             dados = novos_dados[0]
             dados_guardados = novos_dados[1]
@@ -47,39 +47,39 @@ while i < 12:
             dados = novos_dados
             n += 1
         else:
-            print('"Você já usou todas as rerrolagens."')
+            print("Você já usou todas as rerrolagens.")
     elif acao == '4':
         print ('Cartela de pontos:')
-        print (fun.imprime_cartela(cartela))
+        fun.imprime_cartela(cartela)
     elif acao == '0':
         dados_finais = dados + dados_guardados
         print('Digite a combinação desejada:')
         comb = input ('')
-        if comb in cartela['regra_simples']:
-            if cartela['regra_simples'][comb] != -1:
+        if comb.isdigit() and int(comb) in cartela['regra_simples']:
+            if cartela['regra_simples'][int(comb)] == -1:
                cartela = fun.faz_jogada(dados_finais, comb, cartela)
                i += 1
                n = 0
-               dados = fun.rolar_dados(6)
+               dados = fun.rolar_dados(5)
                dados_guardados = []
             else:
                 print('Essa combinação já foi utilizada.')
         elif comb in cartela['regra_avancada']:
-            if cartela['regra_avancada'][comb] != -1:
+            if cartela['regra_avancada'][comb] == -1:
                cartela = fun.faz_jogada(dados_finais, comb, cartela)
                i += 1
                n = 0
-               dados = fun.rolar_dados(6)
+               dados = fun.rolar_dados(5)
                dados_guardados = []
             else:
                 print('Essa combinação já foi utilizada.')
         else:
-            "Combinação inválida. Tente novamente."
+            print("Combinação inválida. Tente novamente.")
     else:
         print("Opção inválida. Tente novamente.")
-    s = 0
 
 
+s = 0
 for p in cartela['regra_simples'].values():
     s += p
 if s >= 63:
@@ -88,7 +88,7 @@ for p in cartela['regra_avancada'].values():
     s += p
 print('Cartela de pontos:')
 print(cartela)
-print (f'Pontuação total: {259}')
+print (f'Pontuação total: {s}')
 
 
 
